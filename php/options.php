@@ -30,7 +30,7 @@ function ES_cross_linker_html_page() {
 
   Electric Studio Tag Highlighter is activated. Any usage of a phrase that is a post heading within &lt;p&gt;&lt;/p&gt; tags will be turned into a link to that page.
   </div>
-
+  <br/>
   <SCRIPT LANGUAGE="JavaScript">
 
     //functions to check/uncheck all the posts
@@ -47,7 +47,7 @@ function ES_cross_linker_html_page() {
     }
 
 </script>
-  <div style="width: 400px; float: left; margin-right: 20px">
+  <div style="width: 400px; float: left; margin-right: 20px; margin-bottom: 20px; border: 1px solid #B0B0B0; moz-border-radius: 5px; border-radius: 5px; padding: 5px">
     <h3>Tags/Posts to Not Link</h3>
     <form name="manageposts" method="post" action="options.php">
       <?php wp_nonce_field('update-options');
@@ -93,7 +93,7 @@ function ES_cross_linker_html_page() {
   </div>
 
 
-<div style="width: 400px; float: left; margin-right: 20px">
+<div style="width: 400px; float: left; margin-right: 20px; margin-bottom: 20px; border: 1px solid #B0B0B0; moz-border-radius: 5px; border-radius: 5px; padding: 5px">
   <h3>Pages To contain no highlighting</h3>
     <form name="managepages" method="post" action="options.php">
         <?php wp_nonce_field('update-options');
@@ -135,6 +135,29 @@ function ES_cross_linker_html_page() {
       </form>
       
   </div>
+
+
+<div style="clear:both; width: 830px; border: 1px solid #B0B0B0; moz-border-radius: 5px; border-radius: 5px; padding: 5px">
+  <form name="miscoptions" method="post" action="options.php">
+  <?php wp_nonce_field('update-options'); ?>
+    <h3>Misc. Options</h3>
+      <h4>Highlight exact matches ony</h4>
+        <p>
+          <input type="checkbox" id="exactMatchesOnly" name="exactMatchesOnly" value="true"/>
+          This makes sure that the word will only be highighted if the word is on its own. i.e. If a post title is 'man' this will stop 'man' being turned into a link in the word 'human'
+        </p>        
+      <h4>Highlight Plural Forms</h4>
+        <p>
+          <input type="checkbox" id="PluralForms" name="PluralForms" value="true"/>
+          This is highlight cases in which the post title reference is followed by an 's'
+        </p>        
+        <p>
+          <input type="hidden" name="action" value="update" />
+          <input type="hidden" name="page_options" value="exactMatchesOnly,PluralForms" />
+          <input type="submit" value="<?php _e('Save Changes') ?>" />
+        </p>
+  </form>
+</div>
 <?php
 }
 ?>
