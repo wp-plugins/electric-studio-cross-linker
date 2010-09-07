@@ -26,6 +26,8 @@ function ES_tag_highlighter(){
 global $wpdb;
 global $post;
 $excluded_pages = get_option('selectpage');
+$pluralForms = get_option('PluralForms');
+$exactMatchesOnly = get_option('exactMatchesOnly');
 
   //sql string
   $sql = "SELECT ID, post_title FROM wp_posts";
@@ -47,22 +49,38 @@ $excluded_pages = get_option('selectpage');
     //check that this page is not an excluded page
     if(!in_array("post".$post->ID,$excluded_pages)){
 
-    //put the PHP array of titles into a javascript array  
-    echo '<script type="text/javascript">
-            var homeurl = "'.get_home_url()."/".'";
-            var titles = new Array();';
-    $i = 0;
-    foreach($page_titles as $page_title){
-      if(!in_array("post".$page_title->ID,$excluded_tags)){  
-      echo 'titles['.$i.'] = new Array(2);
-            titles['.$i.'][0] = "'.$page_title->post_title.'";
-            titles['.$i.'][1] = "'.$page_title->ID.'";';
+      //put the PHP array of titles into a javascript array  
+      echo '<script type="text/javascript">
+              var homeurl = "'.get_home_url()."/".'";
+              var titles = new Array();';
+      
+      //if statement to set pluralFroms into the javascript 
+      if($pluralForms=="true"){
+        echo 'var pluralForms="true";';
+      }else{
+        echo 'var pluralForms="false";';
       }
-      $i++;
-    }
-            
 
-         echo '</script>';
+      //if statement to set the exactMatchesOnly into the javascript
+      if($exactMatchesOnly=="true"){
+        echo 'var exactMatchesOnly="true";';
+      }else{
+        echo 'var exactMatchesOnly="false";';
+      }
+      $i = 0;
+      foreach($page_titles as $page_title){
+        if(!in_array("post".$page_title->ID,$excluded_tags)){  
+        echo 'titles['.$i.'] = new Array(2);
+              titles['.$i.'][0] = "'.$page_title->post_title.'";
+              titles['.$i.'][1] = "'.$page_title->ID.'";';
+        }
+        $i++;
+      }
+            
+    echo '
+console.log(exactMatchesOnly);
+console.log(pluralForms);
+</script>';
 
     }//end (!in_array("post".$post->ID,$excluded_pages))
 
