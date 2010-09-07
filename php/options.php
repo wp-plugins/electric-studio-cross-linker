@@ -16,12 +16,12 @@ function ES_cross_linker_html_page() {
  
 
   //sql string for posts
-  $sql = "SELECT ID, post_title FROM wp_posts WHERE post_content not like '' ORDER BY post_title ASC";
+  $sql = "SELECT ID, post_title FROM wp_posts WHERE post_content not like '' AND post_title NOT LIKE  '' ORDER BY post_title ASC";
   //execute sql command  
   $post_titles = $wpdb->get_results($sql);
 
   //sql string pages
-  $sql = "SELECT ID, post_title FROM wp_posts WHERE post_content not like '' AND post_type like 'page' ORDER BY post_title ASC";
+  $sql = "SELECT ID, post_title FROM wp_posts WHERE post_content not like '' AND post_title NOT LIKE  '' AND post_type like 'page' ORDER BY post_title ASC";
   //execute sql command  
   $page_titles = $wpdb->get_results($sql);
 ?>
@@ -64,7 +64,7 @@ function ES_cross_linker_html_page() {
 
       <input type=button name="CheckAll" value="Check All" onClick="checkAll(document.manageposts.selectpost)">
       <input type=button name="UnCheckAll" value="Uncheck All" onClick="uncheckAll(document.manageposts.selectpost)">
-      <div style="max-height:400px; overflow-y: scroll; width: 400px">
+      <div style="height:400px; overflow-y: scroll; width: 400px">
 
         <?//foreach loop to go through all the posts
           foreach($post_titles as $post_title){
@@ -110,7 +110,7 @@ function ES_cross_linker_html_page() {
 
         <input type=button name="CheckAll" value="Check All" onClick="checkAll(document.managepages.selectpage)">
         <input type=button name="UnCheckAll" value="Uncheck All" onClick="uncheckAll(document.managepages.selectpage)">
-        <div style="max-height:400px; overflow-y: scroll; width: 400px">
+        <div style="height:400px; overflow-y: scroll; width: 400px">
 
           <?//foreach loop to go through all the posts
             foreach($page_titles as $page_title){
