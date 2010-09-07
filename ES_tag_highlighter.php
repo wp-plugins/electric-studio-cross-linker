@@ -56,16 +56,16 @@ $exactMatchesOnly = get_option('exactMatchesOnly');
       
       //if statement to set pluralFroms into the javascript 
       if($pluralForms=="true"){
-        echo 'var pluralForms="true";';
+        echo 'var pluralForms="s";';
       }else{
-        echo 'var pluralForms="false";';
+        echo 'var pluralForms="";';
       }
 
       //if statement to set the exactMatchesOnly into the javascript
       if($exactMatchesOnly=="true"){
-        echo 'var exactMatchesOnly="true";';
+        echo 'var exactMatchesOnly=" ";';
       }else{
-        echo 'var exactMatchesOnly="false";';
+        echo 'var exactMatchesOnly="";';
       }
       $i = 0;
       foreach($page_titles as $page_title){
@@ -77,10 +77,7 @@ $exactMatchesOnly = get_option('exactMatchesOnly');
         $i++;
       }
             
-    echo '
-console.log(exactMatchesOnly);
-console.log(pluralForms);
-</script>';
+    echo '</script>';
 
     }//end (!in_array("post".$post->ID,$excluded_pages))
 
