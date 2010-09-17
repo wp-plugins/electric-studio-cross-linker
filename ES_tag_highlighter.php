@@ -61,12 +61,16 @@ $exactMatchesOnly = get_option('exactMatchesOnly');
         echo 'var pluralForms="";';
       }
 
+	//This is a redundant feature
       //if statement to set the exactMatchesOnly into the javascript
-      if($exactMatchesOnly=="true"){
-        echo 'var exactMatchesOnly=" ";';
-      }else{
-        echo 'var exactMatchesOnly="";';
-      }
+      //if($exactMatchesOnly=="true"){
+        //echo 'var exactMatchesOnly=" ";';
+      //}else{
+      //  echo 'var exactMatchesOnly="";';
+      //}
+    echo 'var exactMatchesOnly=" ";';
+      
+      
       $i = 0;
       foreach($page_titles as $page_title){
         if(!in_array("post".$page_title->ID,$excluded_tags)){  
