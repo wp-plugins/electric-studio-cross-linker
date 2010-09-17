@@ -3,7 +3,7 @@
 Plugin Name: Electric Studio Cross Linker
 Plugin URI: http://www.electricstudio.co.uk
 Description: A plugin to make references to posts in your site's content into cross-links.
-Version: 0.9
+Version: 0.9.5
 Author: James Irving-Swift
 Author URI: http://www.irving-swift.com
 License: GPL2
