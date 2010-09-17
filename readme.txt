@@ -3,7 +3,7 @@ Contributors: irvingswiftj
 Tags: tags, cross-linking
 Requires at least: 3.0
 Tested up to: 3.1
-Stable tag: 0.9
+Stable tag: 0.9.5
 
 Inserts cross linking into your site from post names
 
