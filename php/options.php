@@ -144,17 +144,18 @@ function ES_cross_linker_html_page() {
     $exactMatchesOnly = get_option('exactMatchesOnly');
     ?>
     <h3>Misc. Options</h3>
-      <h4>Highlight exact matches ony</h4>
+      <!-- This feature has been excluded
+		<h4>Highlight exact matches ony</h4>
         <p>
           <?php //check if already selected in the database
-            if($exactMatchesOnly=="true"){
-              $select1="checked=\"checked\"";
-            }else{
-              $select1="";
-            }?>
-          <input type="checkbox" id="exactMatchesOnly" name="exactMatchesOnly" value="true" <?php echo $select1 ?>/>
+            //if($exactMatchesOnly=="true"){
+            //  $select1="checked=\"checked\"";
+            //}else{
+            //  $select1="";
+            //}?>
+          <input type="checkbox" id="exactMatchesOnly" name="exactMatchesOnly" value="true" <?php // echo $select1 ?>/>
           This makes sure that the word will only be highighted if the word is on its own. i.e. If a post title is 'man' this will stop 'man' being turned into a link in the word 'human'
-        </p>        
+        </p>  -->      
       <h4>Highlight Plural Forms</h4>
         <p>
           <?php //check if already selected in the database

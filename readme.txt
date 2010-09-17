@@ -28,11 +28,22 @@ N/A
 
 == Changelog ==
 
+= 0.9.5 =
+* 2nd Beta Release
+*  New features include:
+     Expanded settings in the admin pages.
+     Better pattern matching
+* Known bugs:
+     If used on a very large site, IE struggles with the size of the javascript array.
+
 = 0.9 =
 * Beta Release
 
 
 == Upgrade Notice ==
+
+= 0.9.5 =
+2nd Beta Release. Allows user to have more control over the plugin
 
 = 0.9 =
 This is a beta version
