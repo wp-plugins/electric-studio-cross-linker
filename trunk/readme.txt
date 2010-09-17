@@ -24,7 +24,8 @@ This plugin makes any phrases in a post that match the title of another post int
 N/A
 
 == Screenshots ==
-
+1. Admin Setting Menu
+2. End Result
 
 == Changelog ==
 
