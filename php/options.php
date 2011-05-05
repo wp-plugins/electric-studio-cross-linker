@@ -13,15 +13,13 @@ add_options_page('ES Cross Linker', 'ES Cross Linker', 'administrator',
 function ES_cross_linker_html_page() {
   global $wpdb;
 
- 
-
   //sql string for posts
-  $sql = "SELECT ID, post_title FROM wp_posts WHERE post_content not like '' AND post_title NOT LIKE  '' ORDER BY post_title ASC";
+  $sql = $wpdb->prepare("SELECT ID, post_title FROM $wpdb->posts WHERE post_content not like '' AND post_title NOT LIKE  '' AND post_status='publish' ORDER BY post_title ASC");
   //execute sql command  
   $post_titles = $wpdb->get_results($sql);
 
   //sql string pages
-  $sql = "SELECT ID, post_title FROM wp_posts WHERE post_content not like '' AND post_title NOT LIKE  '' AND post_type like 'page' ORDER BY post_title ASC";
+  $sql = $wpdb->prepare("SELECT ID, post_title FROM $wpdb->posts WHERE post_content not like '' AND post_title NOT LIKE  '' AND post_type like 'page' AND post_status='publish' ORDER BY post_title ASC");
   //execute sql command  
   $page_titles = $wpdb->get_results($sql);
 ?>
@@ -144,18 +142,6 @@ function ES_cross_linker_html_page() {
     $exactMatchesOnly = get_option('exactMatchesOnly');
     ?>
     <h3>Misc. Options</h3>
-      <!-- This feature has been excluded
-		<h4>Highlight exact matches ony</h4>
-        <p>
-          <?php //check if already selected in the database
-            //if($exactMatchesOnly=="true"){
-            //  $select1="checked=\"checked\"";
-            //}else{
-            //  $select1="";
-            //}?>
-          <input type="checkbox" id="exactMatchesOnly" name="exactMatchesOnly" value="true" <?php // echo $select1 ?>/>
-          This makes sure that the word will only be highighted if the word is on its own. i.e. If a post title is 'man' this will stop 'man' being turned into a link in the word 'human'
-        </p>  -->      
       <h4>Highlight Plural Forms</h4>
         <p>
           <?php //check if already selected in the database
