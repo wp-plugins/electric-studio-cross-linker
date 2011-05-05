@@ -3,7 +3,7 @@ Contributors: irvingswiftj
 Tags: tags, cross-linking
 Requires at least: 3.0
 Tested up to: 3.1
-Stable tag: 0.9.5
+Stable tag: 1.0
 
 Inserts cross linking into your site from post names
 
@@ -29,6 +29,11 @@ N/A
 
 == Changelog ==
 
+= 1.0 =
+* Fixed MySQL queries to work on sites with different prefixes
+* Does not highlight pages/posts that aren't published (this caused broken links)
+* Is now secured from Database Injections
+
 = 0.9.5 =
 * 2nd Beta Release
 *  New features include:
@@ -42,6 +47,9 @@ N/A
 
 
 == Upgrade Notice ==
+
+= 1.0 =
+Now Works with version 3.1.2
 
 = 0.9.5 =
 2nd Beta Release. Allows user to have more control over the plugin
