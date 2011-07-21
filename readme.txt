@@ -1,5 +1,5 @@
 === Electric Studio Cross-linker ===
-Contributors: irvingswiftj
+Contributors: irvingswiftj, Electric Studio
 Tags: tags, cross-linking
 Requires at least: 3.0
 Tested up to: 3.1
